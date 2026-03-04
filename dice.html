@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2d6 Roller</title>
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: system-ui;
+        }
+
+        #roller {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .dice {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .die {
+            width: 70px;
+            height: 70px;
+            border: 3px solid black;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 12px;
+            opacity: .7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="roller">
+
+        <div class="dice">
+            <div class="die" id="die1">1</div>
+            <div class="die" id="die2">1</div>
+        </div>
+
+        <div class="total" id="total">Total: 2</div>
+        <div class="note">Click to roll</div>
+
+    </div>
+
+    <script>
+
+        const die1 = document.getElementById("die1");
+        const die2 = document.getElementById("die2");
+        const total = document.getElementById("total");
+        const roller = document.getElementById("roller");
+
+        function rollDice() {
+
+            const d1 = Math.floor(Math.random() * 6) + 1;
+            const d2 = Math.floor(Math.random() * 6) + 1;
+
+            die1.textContent = d1;
+            die2.textContent = d2;
+
+            total.textContent = "Total: " + (d1 + d2);
+
+        }
+
+        roller.addEventListener("click", rollDice);
+
+    </script>
+
+</body>
+
+</html>
